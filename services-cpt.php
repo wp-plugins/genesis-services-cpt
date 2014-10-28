@@ -89,7 +89,7 @@ class lpServices {
                     'parent_item_colon' => ''
                 ),
                 'exclude_from_search' => true,
-                'has_archive' => false,
+                'has_archive' => true,
                 'hierarchical' => true,
                 'public' => true,
                 'menu_icon' => 'dashicons-admin-generic',
