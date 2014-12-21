@@ -26,9 +26,6 @@
     Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
-//include plugins
-include( plugin_dir_path( __FILE__ ) . 'inc/plugins/plugins.php');
-
 /**
  * This class creates a custom post type lp-services, this post type allows the user to create 
  * services to display in the services page template.
