@@ -4,11 +4,6 @@
  *
  * This template is only used if the theme does not have a template titled "single-lp-service dot php", all it does is remove the post info, meta and author box.
  *
- * @package   Plugin_Name
- * @author    Your Name <email@example.com>
- * @license   GPL-2.0+
- * @link      http://example.com
- * @copyright 2013 Your Name or Company Name
  */
 
 // remove post info, post meta, and title from cpt

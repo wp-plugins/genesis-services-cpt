@@ -51,9 +51,6 @@ class lpServices {
         /** Creates testimonials featured image for archive grid */
         add_image_size( 'lp-services', 330, 230, TRUE );
         
-        /** Creates shortcode */
-        add_shortcode( 'services', array( $this, 'services_shortcode' ) );
-        
         /* create text domain */
         load_plugin_textdomain( 'lp', false, dirname( plugin_basename( __FILE__ ) ) . '/lang' );
         
@@ -97,101 +94,8 @@ class lpServices {
                 'supports' => array( 'title', 'editor', 'thumbnail', 'excerpt', 'trackbacks', 'custom-fields', 'revisions', 'page-attributes', 'genesis-seo' ),
             )
         );
-    }
-    
-    /**
-    * Creates shortcode to display services on any post or page.
-    * 
-    * @since 1.0
-    * @link https://llama-press.com
-    */
-    public function services_shortcode( $atts ) {
-            
-          $atts = shortcode_atts( array(
-                    'amount' => '',
-                    'orderby' => '',
-                    'order' => ''
-            ), $atts );
-            $amount = $atts['amount'];
-            $orderby = $atts['orderby'];
-            if( $orderby == "" ) $orderby = 'post_date';
-            $order = $atts['order'];
-            if( $order == "" ) $order = 'DESC';
-            
-            if( $amount != '' ){
-                $args = array(
-                    'post_type' => 'lp-services',
-                    'orderby'       => $orderby,
-                    'order'         => $order,
-                    'posts_per_page' => $amount
-                );
-            }
-            else{
-                $args = array(
-                    'post_type' => 'lp-services',
-                    'orderby'       => $orderby,
-                    'order'         => $order,
-                );
-            }
-            
-             $id = $post->ID;
-             $layout = genesis_site_layout();
-             if($layout == "full-width-content"){
-                 $classMain = "one-fourth";
-                 $num = 4;
-             }
-             else{
-                 $classMain = "one-third";
-                 $num = 3;
-                 $caption_push = " caption_push ";
-             }
-             $loop = new WP_Query( $args );
-             if( $loop->have_posts() ){
-                 //loop through services
-                 while( $loop->have_posts() ): $loop->the_post();
-                     if( 0 == $loop->current_post || 0 == $loop->current_post % $num )
-                     $class = $classMain . ' first';
-                     $excerpt = get_the_excerpt();
-                     if($excerpt != ""){
-                         $text = substr($excerpt, 0, 60);
-                     }
-                     else{
-                            if( get_the_content()){
-                                $text = substr(get_the_content, 0, 60);
-                            }
-                            else{
-                                $text = "";
-                            }
-                     }
-                     $content .= "<div class='lp-grid-item lp-service $class'>";
-                        $content .= "<div class='lp-service'>";
-                            if( has_post_thumbnail( ) ){
-                                $content .= get_the_post_thumbnail( get_the_id(), 'lp-services' );
-                            }
-                            else{
-                                $content .= "<img class='attachment-lp-services wp-post-image' src='" . get_stylesheet_directory_uri() . "/img/grid-bg.png' alt='background' />";
-                            }
-                            $content .= "<strong><a href='" . get_the_permalink() . "'>" . get_the_title() . "</a></strong>";
-                            $content .= "<div class='lp-caption'>";
-                                $content .= "<div class='caption_info$caption_push'>";
-                                    $content .= "<p class='lp-hidden-md'>" . $text . "</p>";
-                                    $content .= "<a class='lp-btn lp-btn-white' href='". get_the_permalink() ."'>Read More&nbsp;&nbsp;<i class='fa fa-arrow-circle-right'></i></a>";
-                                $content .= "</div>";
-                            $content .= "</div>";
-                        $content .= "</div>";
-                     $content .= "</div>";
-                     $class = $classMain;
-                 endwhile;
-                 
-                $content .= "<div class='clearfix'></div>";
-             } 
-             wp_reset_postdata();
-              
-             
-             if( $content )
-             return $content;
-    }  
-    
+        flush_rewrite_rules(); 
+    }    
     
     /**
     * Loads the correct template.
