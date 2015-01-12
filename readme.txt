@@ -1,6 +1,6 @@
 === Genesis Services CPT ===
 Contributors: James Roberts
-Tags: Genesis, Services, CPT
+Tags: 
 Requires at least: 3.9
 Tested up to: 3.9.2
 License: GPL2
