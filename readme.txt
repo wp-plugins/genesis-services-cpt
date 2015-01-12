@@ -1,13 +1,16 @@
-=== Genesis Gallery CPT ===
+=== Genesis Services CPT ===
 Contributors: James Roberts
-Tags: Genesis, Gallery, CPT
+Tags: Genesis, Services, CPT
 Requires at least: 3.9
-Tested up to: 4.0
+Tested up to: 3.9.2
 License: GPL2
 
-Add a Gallery custom post type
+Add a Services custom post type
+
 == Description ==
-This plugin creates an lp-gallery custom post type.
+This plugin creates an lp-services custom post type.
+
+Requires the Genesis framework.
 
 == Installation ==
 Upload
@@ -25,12 +28,9 @@ Manual
 4/ Go to the Plugins screen and click Activate.
 Check out the Codex for more information about installing plugins manually.
 
-In order to display a gallery page you will need to create a new page and if you are using a theme from https://llamapress.com you can give the page the Gallery page template, if not you can use the shortcode [fancy-gallery]. The fancy-gallery sortcode excepts the following perameters, amount (number of items to display), orderby, order and cat (gallery category).
-
-
 == Frequently Asked Questions ==
-= How do I display a gallery in on website? =
-In order to display your gallery items, you will need to create the relevent files within your theme. All LlamaPress themes come with the files needed.
+= How do I display my testimonials on my website? =
+In order to display your testimonial items, you will need to create the relevent files within your theme.
 
 = Do I need Genesis =
 Yes, in order to use this plugin your website will need to be running on the Genesis framework.
